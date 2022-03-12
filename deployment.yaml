@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: gofast-deployment
+spec:
+  selector:
+    matchLabels:
+      app: goFast
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: goFast
+    spec:
+      containers:
+        - name: docker-gs-ping
+          image: belgarion111/docker-gs-ping:v1.0
+          ports:
+            - containerPort: 3000
